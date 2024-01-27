@@ -1,11 +1,16 @@
 import subprocess
+import platform
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
 
 proc_timeout = 10
-ver = "1.0"
-rel = "26-01-2024"
+ver = "1.1"
+rel = "27-01-2024"
+window_size_win = "395x105"
+window_size_lin = "500x115"
+python_name_win = "python"
+python_name_lin = "python3"
         
 def init_gui():
     global button_load
@@ -14,7 +19,10 @@ def init_gui():
     global button_print
 
     gui = tk.Tk()
-    gui.geometry("395x105")
+    if (platform.system() == "Windows"):
+        gui.geometry(window_size_win)
+    if (platform.system() == "Linux"):
+        gui.geometry(window_size_lin)
     gui.title("InstaxGUI" + " v" + ver + " " + rel)
     frame= tk.Frame(gui)
     frame.pack()
@@ -58,16 +66,17 @@ def update_filename(filename):
     return
 
 def print_image():
-    opt_args = input_args.get()
-    try:
-        if (opt_args == ""):
-            proc = subprocess.Popen(["python", "-m", "instax.print", file_in])
-        else:
-            proc = subprocess.Popen(["python", "-m", "instax.print", opt_args, file_in])
-        proc.wait(timeout=proc_timeout)
-    except subprocess.TimeoutExpired:
-        proc.kill()
-        return
+    # proc = subprocess.Popen(["python3", "-m", "instax.print"])
+    # opt_args = input_args.get()
+    # try:
+    #     if (opt_args == ""):
+    #         proc = subprocess.Popen([python_name, "-m", "instax.print", file_in])
+    #     else:
+    #         proc = subprocess.Popen([python_name, "-m", "instax.print", opt_args, file_in])
+    #     proc.wait(timeout=proc_timeout)
+    # except subprocess.TimeoutExpired:
+    #     proc.kill()
+    return
 
 def show_help():
     help_1 = "(1) Connect to your Instax printer via WiFi\n"
