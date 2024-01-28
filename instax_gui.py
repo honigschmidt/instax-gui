@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 proc_timeout = 10
 ver = "1.1"
-rel = "27-01-2024"
+rel = "28-01-2024"
 window_size_win = "395x105"
 window_size_lin = "500x115"
 python_name_win = "python"
@@ -66,16 +66,19 @@ def update_filename(filename):
     return
 
 def print_image():
-    # proc = subprocess.Popen(["python3", "-m", "instax.print"])
-    # opt_args = input_args.get()
-    # try:
-    #     if (opt_args == ""):
-    #         proc = subprocess.Popen([python_name, "-m", "instax.print", file_in])
-    #     else:
-    #         proc = subprocess.Popen([python_name, "-m", "instax.print", opt_args, file_in])
-    #     proc.wait(timeout=proc_timeout)
-    # except subprocess.TimeoutExpired:
-    #     proc.kill()
+    if (platform.system() == "Windwos"):
+        python_name = python_name_win
+    if (platform.system() == "Linux"):
+        python_name = python_name_lin
+    opt_args = input_args.get()
+    try:
+        if (opt_args == ""):
+            proc = subprocess.Popen([python_name, "-m", "instax.print", file_in])
+        else:
+            proc = subprocess.Popen([python_name, "-m", "instax.print", opt_args, file_in])
+        proc.wait(timeout=proc_timeout)
+    except subprocess.TimeoutExpired:
+        proc.kill()
     return
 
 def show_help():
