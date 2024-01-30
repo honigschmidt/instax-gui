@@ -1,12 +1,17 @@
+# Description: GUI for instax-api
+# Dependencies: instax-api
+# OS: Windows, Linux
+
 import subprocess
 import platform
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
 
-proc_timeout = 10
 ver = "1.1"
 rel = "28-01-2024"
+
+proc_timeout = 10
 window_size_win = "395x105"
 window_size_lin = "500x115"
 python_name_win = "python"
