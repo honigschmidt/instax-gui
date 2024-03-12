@@ -11,7 +11,7 @@ from tkinter import messagebox
 ver = "1.1"
 rel = "28-01-2024"
 
-proc_timeout = 10
+proc_timeout = 30
 window_size_win = "395x105"
 window_size_lin = "500x115"
 python_name_win = "python"
@@ -71,7 +71,8 @@ def update_filename(filename):
     return
 
 def print_image():
-    if (platform.system() == "Windwos"):
+    print(platform.system())
+    if (platform.system() == "Windows"):
         python_name = python_name_win
     if (platform.system() == "Linux"):
         python_name = python_name_lin
