@@ -71,7 +71,6 @@ def update_filename(filename):
     return
 
 def print_image():
-    print(platform.system())
     if (platform.system() == "Windows"):
         python_name = python_name_win
     if (platform.system() == "Linux"):
