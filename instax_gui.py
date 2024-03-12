@@ -8,8 +8,8 @@ import tkinter as tk
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
 
-ver = "1.1"
-rel = "28-01-2024"
+ver = "1.2"
+rel = "12-03-2024"
 
 proc_timeout = 30
 window_size_win = "395x105"
